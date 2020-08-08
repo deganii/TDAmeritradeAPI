@@ -32,6 +32,23 @@ credential_builder.py will attempt to:
 
 """
 
+import os
+
+# os.environ['PATH'] = os.pathsep.join([
+#   r'C:\dev\TDAmeritradeAPI\bin\win-x64-msvc',
+#   r'C:\dev\TDAmeritradeAPI\vsbuild\deps\libs\x64\Release\curl',
+#   r'C:\dev\TDAmeritradeAPI\vsbuild\deps\libs\x64\Release\ssl',
+#   r'C:\dev\TDAmeritradeAPI\vsbuild\deps\libs\x64\Release\uv',
+#   r'C:\dev\TDAmeritradeAPI\vsbuild\deps\libs\x64\Release\z',
+#   os.environ['PATH']
+# ])
+
+os.environ['PATH'] = os.pathsep.join([
+  r'C:\dev\TDAmeritradeAPI\vsbuild\x64\Release',
+  os.environ['PATH']
+])
+
+
 from tdma_api import auth, clib
 from cefpython3 import cefpython as cef
 from urllib.parse import unquote, quote

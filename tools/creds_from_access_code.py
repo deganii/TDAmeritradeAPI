@@ -15,6 +15,17 @@
 # along with this program.  If not, see http://www.gnu.org/licenses.
 #
 
+print("test")
+import os
+os.environ['PATH'] = os.pathsep.join([
+  r'C:\dev\TDAmeritradeAPI\bin\win-x64-msvc',
+  r'C:\dev\TDAmeritradeAPI\vsbuild\deps\libs\x64\Release\curl',
+  r'C:\dev\TDAmeritradeAPI\vsbuild\deps\libs\x64\Release\ssl',
+  r'C:\dev\TDAmeritradeAPI\vsbuild\deps\libs\x64\Release\uv',
+  r'C:\dev\TDAmeritradeAPI\vsbuild\deps\libs\x64\Release\z',
+  os.environ['PATH']
+])
+
 from tdma_api import auth, clib
 from urllib.parse import unquote
 import argparse, os
