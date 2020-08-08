@@ -248,7 +248,15 @@ public:
     
     void
     SET_url(string url)
-    { set_option(CURLOPT_URL, url.c_str()); }
+    { set_option(CURLOPT_URL, url.c_str()); 
+		
+		    //    if (curl_easy_setopt(_handle, CURLSSLOPT_NO_REVOKE, 1L) != CURLE_OK) {
+        //    throw CurlOptionException(option, to<T>::str(param));
+        //}
+				
+		
+			 set_option(CURLOPT_SSL_OPTIONS, CURLSSLOPT_NO_REVOKE); 
+		}
 
     string
     GET_url() const
@@ -962,6 +970,7 @@ const map<CURLoption, string> CurlConnection::option_strings = {
     { CURLOPT_NOSIGNAL, "CURLOPT_NOSIGNAL"},
     { CURLOPT_CUSTOMREQUEST, "CURLOPT_CUSTOMREQUEST" },
     { CURLOPT_TIMEOUT_MS, "CURLOPT_TIMEOUT_MS" }
+		//{ CURLSSLOPT_NO_REVOKE , "CURLSSLOPT_NO_REVOKE" }
 };
 
 
